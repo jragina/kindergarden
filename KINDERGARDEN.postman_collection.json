@@ -1,0 +1,323 @@
+{
+	"info": {
+		"_postman_id": "37368555-573c-44d8-bfab-cf4424933f10",
+		"name": "KINDERGARDEN",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllKindergardens",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/kindergarden/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"kindergarden",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createKindergarden",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "abad2b3d-75e0-4ece-9d1a-4647eb91814a",
+						"exec": [
+							"//var data = pm.response.json();\r",
+							"//pm.environment.set(\"kindergardenId\", data.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"name\": \"PII Rīgas gaļas kombināts\",\r\n        \"address\": \"Rīga, Mazā Matīsa iela 5\",\r\n        \"childrenQueue\": [\r\n            {\r\n                \"firstName\": \"Vasīlijs\",\r\n                \"lastName\": \"Mazais Miesnieks\",\r\n                \"identityCode\": \"555555-99990\",\r\n                \"sibling\": true,\r\n                \"entryDate\": \"9922-01-11\"\r\n            },\r\n            {\r\n                \"firstName\": \"Ibrahims\",\r\n                \"lastName\": \"Lielais Miesnieks\",\r\n                \"identityCode\": \"555555-99909\",\r\n                \"sibling\": true,\r\n                \"entryDate\": \"8922-01-11\"\r\n            }]\r\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/kindergarden/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"kindergarden",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addToQueueByModel",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"Pirmais\",\n    \"lastName\": \"Rindā\",\n    \"identityCode\": \"555555-22221\",\n    \"sibling\": true,\n    \"entryDate\": \"1922-01-11T22:00:00.000+0000\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/kindergarden/{{kindergardenId}}/queue/create-add-by-model",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"kindergarden",
+						"{{kindergardenId}}",
+						"queue",
+						"create-add-by-model"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addToQueueByIdCode",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "text/plain",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "666666-22221",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/kindergarden/{{kindergardenId}}/queue/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"kindergarden",
+						"{{kindergardenId}}",
+						"queue",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "removeFromQueueById",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "text/plain",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "666666-22221",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/kindergarden/{{kindergardenId}}/queue/remove-by-id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"kindergarden",
+						"{{kindergardenId}}",
+						"queue",
+						"remove-by-id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllChildren",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/children/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"children",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createChildren",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "35433831-c0d9-4949-8ef0-993288a5b22e",
+						"exec": [
+							"var data = pm.response.json();\r",
+							"pm.environment.set(\"identityCode\", data.identityCode);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"JAUNS\",\n    \"lastName\": \"BEBE\",\n    \"identityCode\": \"666666-22221\",\n    \"sibling\": false,\n    \"entryDate\": \"1922-01-11T22:00:00.000+0000\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/children/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"children",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getChildrenByIdentityCode",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/children/{{identityCode}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"children",
+						"{{identityCode}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getKindergardenById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/kindergarden/{{kindergardenId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"kindergarden",
+						"{{kindergardenId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fetchPrioritizedQueue",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/kindergarden/{{kindergardenId}}/queue",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"kindergarden",
+						"{{kindergardenId}}",
+						"queue"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
